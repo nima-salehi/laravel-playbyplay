@@ -30,9 +30,16 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 // Creating Routes
+// Route::group(['prefix' => 'api'], function () {
+//     Route::get('products', ['as' => 'api.products.index', function () {
+//         return App\Product::all();
+//     }]);
+// });
+//
+
+// creating controller
 Route::group(['prefix' => 'api'], function () {
-    Route::get('products', ['as' => 'api.products.index', function () {
-        return App\Product::all();
-    }]);
+    Route::resource('products', 'ProductController', ['only' => ['index', 'store', 'update']]);
+    Route::resource('products.descriptions', 'ProductDescriptionController', ['only' => ['index', 'store']]);
 });
 //
