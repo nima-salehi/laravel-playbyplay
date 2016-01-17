@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+// Querying Data - Reading Data via API
+use App\Product;
+//
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,10 +16,15 @@ class ProductController extends Controller
      *
      * @return Response
      */
-    public function index()
-    {
-        //
-    }
+
+      // Querying Data - Reading Data via API
+      public function index(Request $request)
+         {
+             return Product::withKeyword($request->input('keyword'))
+                 ->paginate(15);
+         }
+      //
+
 
     /**
      * Store a newly created resource in storage.

@@ -11,11 +11,23 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+// $factory->define(App\User::class, function (Faker\Generator $faker) {
+//     return [
+//         'name' => $faker->name,
+//         'email' => $faker->email,
+//         'password' => bcrypt(str_random(10)),
+//         'remember_token' => str_random(10),
+//     ];
+// });
+// Querying Data - Reading Data via API
+$factory->define(App\Product::class, function ($faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'name' => $faker->unique()->word,
     ];
 });
+$factory->define(App\Description::class, function ($faker) {
+    return [
+        'body' => $faker->text,
+    ];
+});
+//
