@@ -25,17 +25,25 @@ class ProductController extends Controller
          }
       //
 
+     // —————————————————————————
+     // Adding Objects - Inserting Data via API
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+         /**
+          * Store a newly created resource in storage.
+          *
+          * @param  Request  $request
+          * @return Response
+          */
+         public function store(Request $request)
+         {
+             $this->validate($request, [
+                 'name' => 'required|unique:products|productQuality',
+             ]);
+             return Product::create([
+                 'name' => $request->input('name')
+             ]);
+         }
+     // —————————————————————————
 
     /**
      * Update the specified resource in storage.
@@ -46,6 +54,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 }

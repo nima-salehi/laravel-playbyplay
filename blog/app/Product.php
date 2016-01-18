@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+  // Adding Objects - Inserting Data via API
+  public $fillable=['name'];
+
   //Building the Data Model - Rolling Back & Resetting Migrations, Creating Database Seeders
   public function descriptions()
      {
