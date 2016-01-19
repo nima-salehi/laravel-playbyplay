@@ -52,8 +52,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return Response
      */
+// —————————————————————————
+// Adding Objects-Updating Data Via API
+// —————————————————————————
     public function update(Request $request, $id)
     {
-
+      $product=Product::findOrFail($id):
+      $product->update([
+        'name'=>$request->input('name')
+      ]);
     }
+//
 }

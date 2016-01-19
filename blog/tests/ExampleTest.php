@@ -103,7 +103,7 @@ class ExampleTest extends TestCase
              ->seeJson(['name' => ['The name has already been taken.']])
              ->assertResponseStatus(422);
     }
-
+//Adding Objects-Updating Data Via API
     public function testUpdateProduct()
     {
         $product = factory(Product::class)->create(['name' => 'beats']);
@@ -112,7 +112,7 @@ class ExampleTest extends TestCase
              ->seeInDatabase('products', ['name' => 'feets'])
              ->assertResponseOk();
     }
-
+//
     public function testUpdateProductFailsIfNameNotProvided()
     {
         $product = factory(Product::class)->create(['name' => 'beats']);
